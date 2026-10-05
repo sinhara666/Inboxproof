@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case file: dental practice (SAMPLE) — Inboxproof</title>
+<meta name="description" content="Sample anonymized Inboxproof case file: what a real $39 email deliverability audit finds.">
+<style>
+  :root { --accent:#1b3a66; --red:#b22222; --amber:#b06a00; --green:#22783c;
+          --grey:#6e6e6e; --bg:#f5f7fa; --ink:#1a1a1a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:var(--ink); line-height:1.6; background:#fff; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+  header.top { padding:28px 0 8px; display:flex; justify-content:space-between; align-items:center; }
+  .brand { font-weight:800; font-size:22px; color:var(--accent); letter-spacing:-0.5px; text-decoration:none; }
+  nav a { color:var(--grey); font-size:14px; text-decoration:none; margin-left:18px; }
+  .sample-banner { background:#fff8e6; border:2px dashed var(--amber); border-radius:10px;
+                   padding:16px 20px; margin:24px 0; }
+  .sample-banner strong { color:var(--amber); letter-spacing:1px; font-size:13px; }
+  .sample-banner p { font-size:14px; color:#444; margin-top:6px; }
+  h1 { font-size:32px; letter-spacing:-1px; margin:8px 0 6px; color:var(--accent); }
+  .meta { color:var(--grey); font-size:14px; margin-bottom:24px; }
+  h2 { font-size:22px; letter-spacing:-0.5px; margin:32px 0 14px; color:var(--accent); }
+  p { margin-bottom:12px; color:#333; }
+  .finding { background:var(--bg); border-left:4px solid var(--red); border-radius:0 8px 8px 0;
+             padding:14px 16px; margin-bottom:14px; }
+  .finding.warn { border-left-color:var(--amber); }
+  .finding.ok { border-left-color:var(--green); }
+  .finding .tag { font-size:11px; font-weight:800; letter-spacing:1px; margin-bottom:4px; }
+  .finding.crit .tag { color:var(--red); } .finding.warn .tag { color:var(--amber); }
+  .finding.ok .tag { color:var(--green); }
+  .finding h4 { font-size:15px; margin-bottom:4px; }
+  .finding p { font-size:14px; color:#444; margin-bottom:0; }
+  .finding code { display:block; background:#fff; padding:8px 10px; border-radius:6px;
+                  font-size:12.5px; margin-top:8px; overflow-x:auto; }
+  .fixed { background:#f0faf3; border-radius:10px; padding:20px; margin-top:8px; }
+  .fixed li { font-size:14px; color:#333; margin:0 0 8px 18px; }
+  .fixed code { background:#fff; padding:2px 6px; border-radius:4px; font-size:12.5px; }
+  .anon { font-size:13px; color:var(--grey); border-top:1px solid #e8e8e8;
+          margin-top:36px; padding-top:16px; }
+  .cta { text-align:center; padding:40px 0 48px; border-top:1px solid #e8e8e8; margin-top:32px; }
+  .cta h2 { text-align:center; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; font-weight:700;
+         font-size:18px; padding:15px 38px; border-radius:8px; text-decoration:none; }
+  .btn:hover { background:#142c4f; }
+  footer { border-top:1px solid #e8e8e8; padding:24px 0 40px; color:var(--grey); font-size:13px; }
+  @media (max-width:600px){ h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap" style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+  <a class="brand" href="../">Inboxproof</a>
+  <nav><a href="../">Home</a><a href="./">Case files</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="sample-banner">
+    <strong>SAMPLE CASE FILE</strong>
+    <p>This is a demonstration case file with realistic sample data, not a real customer audit. Real case files follow this same format, with the domain name and all identifying details removed.</p>
+  </div>
+
+  <h1>Case file: dental practice</h1>
+  <p class="meta">Industry: dental practice &middot; Audit date: sample data &middot; Findings: 5 (2 critical, 2 warnings, 1 pass)</p>
+
+  <h2>What we found</h2>
+  <p>Appointment reminders and treatment-plan emails were landing in spam for Gmail patients. The audit found why in the first ten minutes of checks:</p>
+
+  <div class="finding crit"><div class="tag">CRITICAL</div>
+    <h4>No DMARC record: anyone can spoof this domain</h4>
+    <p>No DMARC policy published at all. Forged mail claiming to be the practice, appointment scams, fake invoices, is delivered by receiving servers with no questions asked.</p>
+    <code>TXT &nbsp;_dmarc &nbsp; "v=DMARC1; p=none; rua=mailto:dmarc@[domain]"</code>
+  </div>
+
+  <div class="finding crit"><div class="tag">CRITICAL</div>
+    <h4>SPF record authorizes the entire internet</h4>
+    <p>An SPF record exists, but it ends in <code style="display:inline;">+all</code>, which tells receiving servers that literally any server on earth may send mail for this domain. It is worse than no SPF at all, because it actively vouches for forgeries.</p>
+    <code>TXT &nbsp;@ &nbsp; "v=spf1 mx ~all"&nbsp;&nbsp;(replace the +all with ~all)</code>
+  </div>
+
+  <div class="finding warn"><div class="tag">WARNING</div>
+    <h4>No DKIM key under common selectors</h4>
+    <p>No DKIM public key was found under the standard provider selectors we probe. Outbound mail is likely going out unsigned, so receivers cannot cryptographically verify it came from the practice.</p>
+  </div>
+
+  <div class="finding warn"><div class="tag">WARNING</div>
+    <h4>One mail server missing reverse DNS</h4>
+    <p>One of the two MX hosts has no PTR record. Some receiving servers penalize or defer mail from hosts without reverse DNS, which adds delivery delays.</p>
+  </div>
+
+  <div class="finding ok"><div class="tag">PASS</div>
+    <h4>Not on major blocklists</h4>
+    <p>Both mail server IPs came back clean on the blocklists checked. The problem is authentication, not reputation, which is the good kind of problem to have.</p>
+  </div>
+
+  <h2>What was fixed</h2>
+  <div class="fixed">
+    <ul>
+      <li>Published a DMARC record starting in monitoring mode (<code>p=none</code> with a reporting address), with a written plan to move to <code>p=quarantine</code> after two weeks of clean reports.</li>
+      <li>Rewrote the SPF record to remove the <code>+all</code> and end in <code>~all</code>, keeping the practice's actual senders (office mail and the appointment-reminder service).</li>
+      <li>Gave the practice the exact DNS entries to ask their mail provider for DKIM signing, and a note for their IT person on adding the PTR record.</li>
+    </ul>
+  </div>
+  <p style="margin-top:12px;">Total time from payment to delivered PDF: under 48 hours. Every finding traced to a live DNS lookup, and the report included the raw measurements.</p>
+
+  <p class="anon">Anonymity note: case files never include the domain name, business name, location, or anything that could identify the customer. Industry type and findings only.</p>
+
+  <div class="cta">
+    <h2>Get your own case file.</h2>
+    <p style="margin-bottom:24px; color:#444;">$39, one time. Report within 48 hours.</p>
+    <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <p>&copy; 2026 Inboxproof. Sample data shown for demonstration.</p>
+</div></footer>
+
+</body>
+</html>
