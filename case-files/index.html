@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case files — Inboxproof</title>
+<meta name="description" content="Anonymized Inboxproof audit case files: real findings from real $39 email deliverability audits, with all identifying details removed.">
+<style>
+  :root { --accent:#1b3a66; --red:#b22222; --amber:#b06a00; --green:#22783c;
+          --grey:#6e6e6e; --bg:#f5f7fa; --ink:#1a1a1a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:var(--ink); line-height:1.6; background:#fff; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+  header.top { padding:28px 0 8px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; }
+  .brand { font-weight:800; font-size:22px; color:var(--accent); letter-spacing:-0.5px; text-decoration:none; }
+  nav a { color:var(--grey); font-size:14px; text-decoration:none; margin-left:18px; }
+  h1 { font-size:32px; letter-spacing:-1px; margin:32px 0 8px; color:var(--accent); }
+  .sub { color:#444; margin-bottom:28px; max-width:640px; }
+  .case { background:var(--bg); border-radius:10px; padding:20px 22px; margin-bottom:16px;
+          display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  .case h2 { font-size:18px; margin-bottom:4px; }
+  .case h2 a { color:var(--accent); text-decoration:none; }
+  .case h2 a:hover { text-decoration:underline; }
+  .case p { font-size:14px; color:#444; }
+  .pill { font-size:11px; font-weight:800; letter-spacing:1px; padding:4px 10px;
+          border-radius:20px; background:#fff; border:1px solid #ddd; color:var(--grey);
+          white-space:nowrap; }
+  .pill.sample { border-color:var(--amber); color:var(--amber); }
+  .note { font-size:13px; color:var(--grey); margin:28px 0 8px; }
+  .cta { text-align:center; padding:40px 0 48px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; font-weight:700;
+         font-size:18px; padding:15px 38px; border-radius:8px; text-decoration:none; }
+  .btn:hover { background:#142c4f; }
+  footer { border-top:1px solid #e8e8e8; padding:24px 0 40px; color:var(--grey); font-size:13px; }
+  @media (max-width:600px){ h1{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="topbar">
+  <a class="brand" href="../">Inboxproof</a>
+  <nav><a href="../">Home</a><a href="./">Case files</a></nav>
+</div></div></header>
+
+<div class="wrap">
+  <h1>Case files</h1>
+  <p class="sub">Anonymized write-ups of real audits: the industry, what we found, and what got fixed. Domain names and identifying details are never published. New files are added as audits are delivered.</p>
+
+  <!-- CASE FILE LIST: add one .case block per published case file, newest first. -->
+  <div class="case">
+    <div>
+      <h2><a href="sample-dental-practice.html">Dental practice: SPF vouched for the whole internet</a></h2>
+      <p>2 critical, 2 warnings, 1 pass. Missing DMARC, an SPF record ending in +all, no DKIM key. Fixed in one report.</p>
+    </div>
+    <span class="pill sample">SAMPLE</span>
+  </div>
+
+  <p class="note">More case files appear here as audits are completed. Each one ends with the same offer below.</p>
+
+  <div class="cta">
+    <p style="margin-bottom:24px; color:#444;">$39, one time. Report within 48 hours.</p>
+    <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <p>&copy; 2026 Inboxproof.</p>
+</div></footer>
+
+</body>
+</html>
