@@ -51,6 +51,12 @@
   .faq dt { font-weight:700; font-size:16px; margin:18px 0 4px; }
   .faq dd { color:#444; font-size:15px; }
   .cta { text-align:center; padding:48px 0; }
+  .tally { background:var(--accent); color:#fff; }
+  .tally .wrap { display:flex; gap:32px; justify-content:center; text-align:center;
+                 padding-top:28px; padding-bottom:28px; flex-wrap:wrap; }
+  .tally .stat .num { font-size:34px; font-weight:800; letter-spacing:-1px; }
+  .tally .stat .lbl { font-size:13px; opacity:.85; margin-top:2px; }
+  .tally a { color:#fff; }
   footer { border-top:1px solid #e8e8e8; padding:24px 0 40px; color:var(--grey); font-size:13px; }
   footer a { color:var(--grey); }
   @media (max-width:600px){ .checks{grid-template-columns:1fr;} .hero h1{font-size:30px;} }
@@ -66,6 +72,16 @@
   <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
   <p class="price-note">One-time payment. PDF report in your inbox within 48 hours.</p>
 </div></div>
+
+<!-- TALLY: numbers come from tally.json (see _note in that file). Edit tally.json, not this block. -->
+<div class="tally"><div class="wrap">
+  <div class="stat"><div class="num" id="t-audits">0</div><div class="lbl">audits delivered</div></div>
+  <div class="stat"><div class="num" id="t-issues">0</div><div class="lbl">issues found</div></div>
+  <div class="stat"><div class="num" id="t-critical">0</div><div class="lbl">critical, caught in time</div></div>
+</div></div>
+<p style="text-align:center; font-size:13px; color:#6e6e6e; padding:10px 0 0;">
+  Real audits, real findings. <a href="case-files/" style="color:#1b3a66;">See anonymized case files</a>
+</p>
 
 <section><div class="wrap">
   <h2>What you get</h2>
@@ -127,6 +143,12 @@
 </div></section>
 
 <section><div class="wrap">
+  <h2>Case files</h2>
+  <p>After each audit, we publish an anonymized case file: the industry, what we found, and what got fixed. No domain names, no identifying details, ever. Proof that the work is real.</p>
+  <p style="margin-top:12px;"><a class="btn" href="case-files/" style="font-size:16px; padding:12px 28px;">Browse case files</a></p>
+</div></section>
+
+<section><div class="wrap">
   <h2>FAQ</h2>
   <dl class="faq">
     <dt>Do I need a domain? What about my @gmail.com address?</dt>
@@ -141,6 +163,8 @@
     <dd>Then the report says so, with the evidence. A clean bill of health with proof is worth knowing too.</dd>
     <dt>Is my data shared or sold?</dt>
     <dd>No. Your domain and report are used only to deliver your audit. Nothing is sold, shared, or published.</dd>
+    <dt>Do you publish my audit as a case file?</dt>
+    <dd>Only in anonymized form, and never with anything identifying. Case files show the industry type (like "dental practice"), the findings, and what was fixed. Your domain name is never published.</dd>
   </dl>
 </div></section>
 
@@ -154,6 +178,19 @@
   <p>&copy; 2026 Inboxproof. Questions: <a href="mailto:support@inboxproof.blxckroze.com">support@inboxproof.blxckroze.com</a></p>
   <p style="margin-top:8px;">Audits are based on public DNS lookups at the time of the check. DKIM is probed under common selector names; custom selectors can't be verified without knowing them.</p>
 </div></footer>
+
+<script>
+// Tally: reads tally.json so numbers update without touching this page.
+// Falls back to the inline zeros above if the fetch fails.
+fetch('tally.json').then(function(r){ return r.json(); }).then(function(t){
+  var a = document.getElementById('t-audits'),
+      i = document.getElementById('t-issues'),
+      c = document.getElementById('t-critical');
+  if (a && t.audits_delivered != null) a.textContent = t.audits_delivered;
+  if (i && t.issues_found != null) i.textContent = t.issues_found;
+  if (c && t.critical_found != null) c.textContent = t.critical_found;
+}).catch(function(){});
+</script>
 
 </body>
 </html>
