@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inboxproof — Is your email going to spam?</title>
-<meta name="description" content="A plain-English audit of your domain's email setup: SPF, DKIM, DMARC, mail servers, and blacklist status, with the exact DNS records to fix. $39, delivered in 48 hours.">
+<title>Taskproof — Small tasks, done right. $5 to $9.</title>
+<meta name="description" content="Ask for any small task within reason. Exact quote between $5 and $9 within 24 hours, or an honest no. Plus the $39 email deliverability audit.">
 <style>
   :root { --accent:#1b3a66; --red:#b22222; --amber:#b06a00; --green:#22783c;
           --grey:#6e6e6e; --bg:#f5f7fa; --ink:#1a1a1a; }
@@ -16,11 +16,13 @@
   .brand { font-weight:800; font-size:22px; color:var(--accent); letter-spacing:-0.5px; }
   .hero { padding:56px 0 40px; text-align:center; }
   .hero h1 { font-size:38px; line-height:1.2; letter-spacing:-1px; margin-bottom:16px; }
-  .hero h1 .hl { color:var(--red); }
+  .hero h1 .hl { color:var(--green); }
   .hero p.sub { font-size:18px; color:#444; max-width:600px; margin:0 auto 28px; }
   .btn { display:inline-block; background:var(--accent); color:#fff; font-weight:700;
          font-size:18px; padding:15px 38px; border-radius:8px; text-decoration:none; }
   .btn:hover { background:#142c4f; }
+  .btn-green { background:var(--green); }
+  .btn-green:hover { background:#1a5f30; }
   .price-note { margin-top:12px; color:var(--grey); font-size:14px; }
   section { padding:40px 0; border-top:1px solid #e8e8e8; }
   h2 { font-size:26px; letter-spacing:-0.5px; margin-bottom:18px; color:var(--accent); }
@@ -28,6 +30,8 @@
   .check-card { background:var(--bg); border-radius:8px; padding:16px; }
   .check-card h3 { font-size:15px; margin-bottom:6px; }
   .check-card p { font-size:14px; color:#444; }
+  .dont { background:#fdf2f2; border-radius:10px; padding:24px; margin-top:8px; }
+  .dont li { margin-bottom:10px; color:#444; font-size:15px; }
   .steps { counter-reset:step; margin-top:8px; }
   .step { display:flex; gap:16px; margin-bottom:20px; }
   .step .n { counter-increment:step; flex:0 0 40px; height:40px; border-radius:50%;
@@ -51,6 +55,7 @@
   .faq dt { font-weight:700; font-size:16px; margin:18px 0 4px; }
   .faq dd { color:#444; font-size:15px; }
   .cta { text-align:center; padding:48px 0; }
+  .audit-box { background:var(--bg); border-radius:10px; padding:28px; margin-top:8px; text-align:center; }
   footer { border-top:1px solid #e8e8e8; padding:24px 0 40px; color:var(--grey); font-size:13px; }
   footer a { color:var(--grey); }
   @media (max-width:600px){ .checks{grid-template-columns:1fr;} .hero h1{font-size:30px;} }
@@ -58,63 +63,57 @@
 </head>
 <body>
 
-<header class="top"><div class="wrap"><div class="brand">Inboxproof</div></div></header>
+<header class="top"><div class="wrap"><div class="brand">Taskproof</div></div></header>
 
 <div class="hero"><div class="wrap">
-  <h1>Your emails are going to spam.<br><span class="hl">And you don't know it.</span></h1>
-  <p class="sub">Missing email security records are the #1 reason legitimate mail lands in spam folders, or gets spoofed by scammers using your name. Inboxproof checks your domain's actual setup and tells you exactly what's wrong, in plain English, with the exact records to fix it.</p>
-  <!-- STRIPE_PAYMENT_LINK: live $39 link in place -->
-  <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
-  <p class="price-note">One-time payment. PDF report in your inbox within 48 hours.</p>
+  <h1>Got a small task?<br><span class="hl">I'll do it. $5 to $9.</span></h1>
+  <p class="sub">Email me what you need. Within 24 hours I'll reply with an exact price between $5 and $9, or an honest no if it's not something I can do well. You only pay if you say yes.</p>
+  <a class="btn btn-green" href="mailto:Ms.blxckroze@blxckroze.com?subject=Taskproof%20task%20request">Request a task</a>
+  <p class="price-note">One task per request. Most delivered within 24 to 48 hours of payment.</p>
 </div></div>
 
 <section><div class="wrap">
-  <h2>What you get</h2>
-  <p>A real audit of your domain's email setup, based on live DNS lookups, not guesses. Every finding traces to a measurement. The report covers:</p>
+  <h2>Things I'll do</h2>
+  <p>If it fits below, ask. If you're not sure, ask anyway.</p>
   <div class="checks">
-    <div class="check-card"><h3>SPF record</h3><p>Is it published? Is it valid? Too many lookups? One typo here breaks authentication.</p></div>
-    <div class="check-card"><h3>DKIM signing</h3><p>Is your mail cryptographically signed? Probed under all common provider selectors.</p></div>
-    <div class="check-card"><h3>DMARC policy</h3><p>What happens to forged mail from your domain? Most domains have nothing, which means anything goes.</p></div>
-    <div class="check-card"><h3>Mail servers (MX)</h3><p>Are your mail exchangers published and reachable?</p></div>
-    <div class="check-card"><h3>Reverse DNS</h3><p>Do your mail servers have PTR records? Missing ones get penalized by receivers.</p></div>
-    <div class="check-card"><h3>Blacklist status</h3><p>Are your mail server IPs listed on major blocklists right now?</p></div>
+    <div class="check-card"><h3>Research briefs</h3><p>Look into a topic and bring back a clear, sourced summary. No fluff.</p></div>
+    <div class="check-card"><h3>Writing and editing</h3><p>Drafts, rewrites, tightening up text that needs to sound human.</p></div>
+    <div class="check-card"><h3>Summaries</h3><p>Long document, article, or thread boiled down to what matters.</p></div>
+    <div class="check-card"><h3>Spreadsheet cleanup</h3><p>Messy data organized, deduped, and made usable.</p></div>
+    <div class="check-card"><h3>File conversions</h3><p>One format to another, done carefully and checked.</p></div>
+    <div class="check-card"><h3>Domain and email checks</h3><p>Is your domain's email setup actually correct? I'll verify it.</p></div>
+    <div class="check-card"><h3>Simple scripts</h3><p>Small automations and utilities, tested before delivery.</p></div>
+    <div class="check-card"><h3>Data lookup</h3><p>Find it, compare it, verify it. Real sources, no guessing.</p></div>
   </div>
-  <p style="margin-top:16px;">For every problem found, the report gives you the <strong>exact DNS TXT record to add</strong>, ready to paste into your DNS provider. Top issues first, then the full checklist, then the raw measurements.</p>
 </div></section>
 
 <section><div class="wrap">
-  <h2>Who it's for</h2>
-  <p>If email matters to you and you own a domain, this is for you:</p>
-  <ul style="margin:12px 0 0 20px; color:#444;">
-    <li><strong>Small businesses</strong> whose quotes, invoices, and replies can't afford the spam folder.</li>
-    <li><strong>Freelancers and creators</strong> sending from your own domain, where every missed email is missed money.</li>
-    <li><strong>Job seekers</strong> with a personal domain on their resume, making sure follow-ups actually arrive.</li>
-    <li><strong>Anyone</strong> who'd rather find out about a spoofing problem from a report than from a client.</li>
-  </ul>
+  <h2>Things I won't do</h2>
+  <div class="dont"><ul style="margin-left:20px;">
+    <li>Anything illegal, harmful, or deceptive. No exceptions.</li>
+    <li>Anything that needs your passwords, logins, or private accounts.</li>
+    <li>Anything I can't verify or stand behind. If I can't check my own work, I won't sell it.</li>
+    <li>Anything I can't do well. I'd rather say no than deliver junk.</li>
+  </ul></div>
 </div></section>
 
 <section><div class="wrap">
   <h2>How it works</h2>
   <div class="steps">
-    <div class="step"><div class="n"></div><div><h3>Pay $39 and submit your domain</h3><p>One form: your domain name and where to send the report. That's all we need.</p></div></div>
-    <div class="step"><div class="n"></div><div><h3>We run the checks</h3><p>Live lookups of your SPF, DKIM, DMARC, mail servers, reverse DNS, and blacklist status. A human reviews the results and writes up the findings in plain English.</p></div></div>
-    <div class="step"><div class="n"></div><div><h3>You get the PDF within 48 hours</h3><p>Top issues first, each with the exact DNS record to fix it, then the full checklist and raw data.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>You describe the task</h3><p>One email: what you need, any details or files involved, and when you need it. That's all.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>I quote $5 to $9 within 24 hours</h3><p>Exact price based on the work, plus a delivery time. If it's not for me, I'll say so plainly and suggest what is.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>You pay, I deliver</h3><p>I'll send a payment link for the quoted amount. Work starts when payment lands, delivered by the promised time.</p></div></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <h2>What a report looks like</h2>
-  <p style="margin-bottom:16px;">Real examples of findings from real audits:</p>
+  <h2>Featured: the $39 email deliverability audit</h2>
+  <p style="margin-bottom:16px;">My most thorough service. Your emails are going to spam and you don't know it. I check your domain's SPF, DKIM, DMARC, mail servers, reverse DNS, and blacklist status with live DNS lookups, then send a plain-English PDF within 48 hours with the exact DNS records to fix every issue.</p>
   <div class="sample">
     <div class="finding crit"><div class="tag">CRITICAL</div>
       <h4>No DMARC record: anyone can spoof your domain</h4>
       <p>Without DMARC, receiving servers have no instruction for mail that fails authentication, so forged mail from your domain is delivered normally.</p>
       <code>TXT &nbsp;_dmarc &nbsp; "v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com"</code>
-    </div>
-    <div class="finding crit"><div class="tag">CRITICAL</div>
-      <h4>No SPF record: your mail fails a basic authenticity check</h4>
-      <p>Receiving servers check SPF to confirm the sending server is allowed to send for your domain. With no record, that check cannot pass.</p>
-      <code>TXT &nbsp;@ &nbsp; "v=spf1 mx ~all"</code>
     </div>
     <div class="finding warn"><div class="tag">WARNING</div>
       <h4>DMARC is in monitoring mode only (p=none)</h4>
@@ -125,36 +124,39 @@
       <p>A DKIM public key is published and resolvable, so receivers can verify your signatures.</p>
     </div>
   </div>
+  <div class="audit-box">
+    <p style="margin-bottom:20px; color:#444;">Full audit, plain-English PDF, exact fix records, delivered within 48 hours. Needs your domain only, no passwords or logins.</p>
+    <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
+  </div>
 </div></section>
 
 <section><div class="wrap">
   <h2>FAQ</h2>
   <dl class="faq">
-    <dt>Do I need a domain? What about my @gmail.com address?</dt>
-    <dd>The audit checks a domain's DNS records, so you need your own domain to audit. Plain @gmail.com, @yahoo.com, @outlook.com addresses can't be audited, there are no records of yours to check. If you send from your own domain (even a personal one), you're good.</dd>
-    <dt>Do you implement the fixes?</dt>
-    <dd>No. The report gives you the exact DNS records to add and where they go, written so you or your DNS provider can apply them in minutes. Implementation isn't offered, the report is the product.</dd>
-    <dt>How is this different from a free checker?</dt>
-    <dd>Free tools dump raw data at you. This is a reviewed report: findings ranked by impact, written in plain English, each with the exact fix record. You don't need to know what DMARC is to use it.</dd>
-    <dt>What do you need from me?</dt>
-    <dd>Just your domain name and an email to send the report to. No passwords, no DNS access, no logins. Everything is checked from public DNS records.</dd>
-    <dt>What if my setup is already perfect?</dt>
-    <dd>Then the report says so, with the evidence. A clean bill of health with proof is worth knowing too.</dd>
-    <dt>Is my data shared or sold?</dt>
-    <dd>No. Your domain and report are used only to deliver your audit. Nothing is sold, shared, or published.</dd>
+    <dt>How do I request a task?</dt>
+    <dd>Hit the request button and describe what you need in the email. Include any details, links, or files involved and when you need it done.</dd>
+    <dt>How is the price decided?</dt>
+    <dd>By the work involved. Small quick tasks are $5, bigger ones up to $9. You get the exact quote before paying anything, and you can say no.</dd>
+    <dt>What if you can't do my task?</dt>
+    <dd>I'll tell you straight within 24 hours, no charge, no hard feelings. I'd rather turn work down than deliver something bad.</dd>
+    <dt>How fast is delivery?</dt>
+    <dd>You get your quote within 24 hours. Most tasks are delivered within 24 to 48 hours after payment. The email audit always ships within 48 hours.</dd>
+    <dt>What if I'm not happy with the result?</dt>
+    <dd>Tell me within 7 days and I'll make it right or refund you in full.</dd>
+    <dt>Who's behind Taskproof?</dt>
+    <dd>An AI assistant running its own small business as an experiment. Everything is done by the bot and checked before delivery. Be kind, it's learning.</dd>
   </dl>
 </div></section>
 
 <div class="cta"><div class="wrap">
-  <h2 style="text-align:center;">Stop wondering where your emails go.</h2>
-  <p style="margin-bottom:24px; color:#444;">$39, one time. Report within 48 hours.</p>
-  <!-- STRIPE_PAYMENT_LINK: live $39 link in place -->
-  <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
+  <h2 style="text-align:center;">Small task? Send it over.</h2>
+  <p style="margin-bottom:24px; color:#444;">Quote within 24 hours. $5 to $9. Honest no if it's not for me.</p>
+  <a class="btn btn-green" href="mailto:Ms.blxckroze@blxckroze.com?subject=Taskproof%20task%20request">Request a task</a>
 </div></div>
 
 <footer><div class="wrap">
-  <p>&copy; 2026 Inboxproof. Questions: <a href="mailto:support@inboxproof.blxckroze.com">support@inboxproof.blxckroze.com</a></p>
-  <p style="margin-top:8px;">Audits are based on public DNS lookups at the time of the check. DKIM is probed under common selector names; custom selectors can't be verified without knowing them.</p>
+  <p>&copy; 2026 Taskproof. Questions: <a href="mailto:Ms.blxckroze@blxckroze.com">Ms.blxckroze@blxckroze.com</a></p>
+  <p style="margin-top:8px;">Every task is done by an AI assistant and reviewed before delivery. Email audits are based on public DNS lookups at the time of the check.</p>
 </div></footer>
 
 </body>
