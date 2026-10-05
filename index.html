@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inboxproof — Is your email going to spam?</title>
+<meta name="description" content="A plain-English audit of your domain's email setup: SPF, DKIM, DMARC, mail servers, and blacklist status, with the exact DNS records to fix. $39, delivered in 48 hours.">
+<style>
+  :root { --accent:#1b3a66; --red:#b22222; --amber:#b06a00; --green:#22783c;
+          --grey:#6e6e6e; --bg:#f5f7fa; --ink:#1a1a1a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:var(--ink); line-height:1.6; background:#fff; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+  header.top { padding:28px 0 8px; }
+  .brand { font-weight:800; font-size:22px; color:var(--accent); letter-spacing:-0.5px; }
+  .hero { padding:56px 0 40px; text-align:center; }
+  .hero h1 { font-size:38px; line-height:1.2; letter-spacing:-1px; margin-bottom:16px; }
+  .hero h1 .hl { color:var(--red); }
+  .hero p.sub { font-size:18px; color:#444; max-width:600px; margin:0 auto 28px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; font-weight:700;
+         font-size:18px; padding:15px 38px; border-radius:8px; text-decoration:none; }
+  .btn:hover { background:#142c4f; }
+  .price-note { margin-top:12px; color:var(--grey); font-size:14px; }
+  section { padding:40px 0; border-top:1px solid #e8e8e8; }
+  h2 { font-size:26px; letter-spacing:-0.5px; margin-bottom:18px; color:var(--accent); }
+  .checks { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .check-card { background:var(--bg); border-radius:8px; padding:16px; }
+  .check-card h3 { font-size:15px; margin-bottom:6px; }
+  .check-card p { font-size:14px; color:#444; }
+  .steps { counter-reset:step; margin-top:8px; }
+  .step { display:flex; gap:16px; margin-bottom:20px; }
+  .step .n { counter-increment:step; flex:0 0 40px; height:40px; border-radius:50%;
+             background:var(--accent); color:#fff; font-weight:800; font-size:18px;
+             display:flex; align-items:center; justify-content:center; }
+  .step .n::before { content:counter(step); }
+  .step h3 { font-size:17px; margin-bottom:4px; }
+  .step p { color:#444; font-size:15px; }
+  .sample { background:var(--bg); border-radius:10px; padding:24px; margin-top:8px; }
+  .finding { background:#fff; border-left:4px solid var(--red); border-radius:0 8px 8px 0;
+             padding:14px 16px; margin-bottom:14px; }
+  .finding.warn { border-left-color:var(--amber); }
+  .finding.ok { border-left-color:var(--green); }
+  .finding .tag { font-size:11px; font-weight:800; letter-spacing:1px; margin-bottom:4px; }
+  .finding.crit .tag { color:var(--red); } .finding.warn .tag { color:var(--amber); }
+  .finding.ok .tag { color:var(--green); }
+  .finding h4 { font-size:15px; margin-bottom:4px; }
+  .finding p { font-size:14px; color:#444; }
+  .finding code { display:block; background:#f0f2f5; padding:8px 10px; border-radius:6px;
+                  font-size:12.5px; margin-top:8px; overflow-x:auto; }
+  .faq dt { font-weight:700; font-size:16px; margin:18px 0 4px; }
+  .faq dd { color:#444; font-size:15px; }
+  .cta { text-align:center; padding:48px 0; }
+  footer { border-top:1px solid #e8e8e8; padding:24px 0 40px; color:var(--grey); font-size:13px; }
+  footer a { color:var(--grey); }
+  @media (max-width:600px){ .checks{grid-template-columns:1fr;} .hero h1{font-size:30px;} }
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="brand">Inboxproof</div></div></header>
+
+<div class="hero"><div class="wrap">
+  <h1>Your emails are going to spam.<br><span class="hl">And you don't know it.</span></h1>
+  <p class="sub">Missing email security records are the #1 reason legitimate mail lands in spam folders, or gets spoofed by scammers using your name. Inboxproof checks your domain's actual setup and tells you exactly what's wrong, in plain English, with the exact records to fix it.</p>
+  <!-- STRIPE_PAYMENT_LINK: live $39 link in place -->
+  <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
+  <p class="price-note">One-time payment. PDF report in your inbox within 48 hours.</p>
+</div></div>
+
+<section><div class="wrap">
+  <h2>What you get</h2>
+  <p>A real audit of your domain's email setup, based on live DNS lookups, not guesses. Every finding traces to a measurement. The report covers:</p>
+  <div class="checks">
+    <div class="check-card"><h3>SPF record</h3><p>Is it published? Is it valid? Too many lookups? One typo here breaks authentication.</p></div>
+    <div class="check-card"><h3>DKIM signing</h3><p>Is your mail cryptographically signed? Probed under all common provider selectors.</p></div>
+    <div class="check-card"><h3>DMARC policy</h3><p>What happens to forged mail from your domain? Most domains have nothing, which means anything goes.</p></div>
+    <div class="check-card"><h3>Mail servers (MX)</h3><p>Are your mail exchangers published and reachable?</p></div>
+    <div class="check-card"><h3>Reverse DNS</h3><p>Do your mail servers have PTR records? Missing ones get penalized by receivers.</p></div>
+    <div class="check-card"><h3>Blacklist status</h3><p>Are your mail server IPs listed on major blocklists right now?</p></div>
+  </div>
+  <p style="margin-top:16px;">For every problem found, the report gives you the <strong>exact DNS TXT record to add</strong>, ready to paste into your DNS provider. Top issues first, then the full checklist, then the raw measurements.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Who it's for</h2>
+  <p>If email matters to you and you own a domain, this is for you:</p>
+  <ul style="margin:12px 0 0 20px; color:#444;">
+    <li><strong>Small businesses</strong> whose quotes, invoices, and replies can't afford the spam folder.</li>
+    <li><strong>Freelancers and creators</strong> sending from your own domain, where every missed email is missed money.</li>
+    <li><strong>Job seekers</strong> with a personal domain on their resume, making sure follow-ups actually arrive.</li>
+    <li><strong>Anyone</strong> who'd rather find out about a spoofing problem from a report than from a client.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n"></div><div><h3>Pay $39 and submit your domain</h3><p>One form: your domain name and where to send the report. That's all we need.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>We run the checks</h3><p>Live lookups of your SPF, DKIM, DMARC, mail servers, reverse DNS, and blacklist status. A human reviews the results and writes up the findings in plain English.</p></div></div>
+    <div class="step"><div class="n"></div><div><h3>You get the PDF within 48 hours</h3><p>Top issues first, each with the exact DNS record to fix it, then the full checklist and raw data.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What a report looks like</h2>
+  <p style="margin-bottom:16px;">Real examples of findings from real audits:</p>
+  <div class="sample">
+    <div class="finding crit"><div class="tag">CRITICAL</div>
+      <h4>No DMARC record: anyone can spoof your domain</h4>
+      <p>Without DMARC, receiving servers have no instruction for mail that fails authentication, so forged mail from your domain is delivered normally.</p>
+      <code>TXT &nbsp;_dmarc &nbsp; "v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com"</code>
+    </div>
+    <div class="finding crit"><div class="tag">CRITICAL</div>
+      <h4>No SPF record: your mail fails a basic authenticity check</h4>
+      <p>Receiving servers check SPF to confirm the sending server is allowed to send for your domain. With no record, that check cannot pass.</p>
+      <code>TXT &nbsp;@ &nbsp; "v=spf1 mx ~all"</code>
+    </div>
+    <div class="finding warn"><div class="tag">WARNING</div>
+      <h4>DMARC is in monitoring mode only (p=none)</h4>
+      <p>Your DMARC record collects reports but tells receivers to deliver failing mail anyway. Spoofed mail still reaches inboxes.</p>
+    </div>
+    <div class="finding ok"><div class="tag">PASS</div>
+      <h4>DKIM key published</h4>
+      <p>A DKIM public key is published and resolvable, so receivers can verify your signatures.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>FAQ</h2>
+  <dl class="faq">
+    <dt>Do I need a domain? What about my @gmail.com address?</dt>
+    <dd>The audit checks a domain's DNS records, so you need your own domain to audit. Plain @gmail.com, @yahoo.com, @outlook.com addresses can't be audited, there are no records of yours to check. If you send from your own domain (even a personal one), you're good.</dd>
+    <dt>Do you implement the fixes?</dt>
+    <dd>No. The report gives you the exact DNS records to add and where they go, written so you or your DNS provider can apply them in minutes. Implementation isn't offered, the report is the product.</dd>
+    <dt>How is this different from a free checker?</dt>
+    <dd>Free tools dump raw data at you. This is a reviewed report: findings ranked by impact, written in plain English, each with the exact fix record. You don't need to know what DMARC is to use it.</dd>
+    <dt>What do you need from me?</dt>
+    <dd>Just your domain name and an email to send the report to. No passwords, no DNS access, no logins. Everything is checked from public DNS records.</dd>
+    <dt>What if my setup is already perfect?</dt>
+    <dd>Then the report says so, with the evidence. A clean bill of health with proof is worth knowing too.</dd>
+    <dt>Is my data shared or sold?</dt>
+    <dd>No. Your domain and report are used only to deliver your audit. Nothing is sold, shared, or published.</dd>
+  </dl>
+</div></section>
+
+<div class="cta"><div class="wrap">
+  <h2 style="text-align:center;">Stop wondering where your emails go.</h2>
+  <p style="margin-bottom:24px; color:#444;">$39, one time. Report within 48 hours.</p>
+  <!-- STRIPE_PAYMENT_LINK: live $39 link in place -->
+  <a class="btn" href="https://buy.stripe.com/6oUdR80LXgZG40i6Gre7m01">Audit my domain — $39</a>
+</div></div>
+
+<footer><div class="wrap">
+  <p>&copy; 2026 Inboxproof. Questions: <a href="mailto:support@inboxproof.blxckroze.com">support@inboxproof.blxckroze.com</a></p>
+  <p style="margin-top:8px;">Audits are based on public DNS lookups at the time of the check. DKIM is probed under common selector names; custom selectors can't be verified without knowing them.</p>
+</div></footer>
+
+</body>
+</html>
